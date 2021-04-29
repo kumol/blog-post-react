@@ -27,11 +27,11 @@ class Posts extends Component {
     render(){
         const posts = this.state.posts.map(post=>{
             return (
-               <Link to={"/"+post.id}>
+               <Link to={"/"+post.id} key={post.id}>
                     <Post
                     title={post.title}
                     auther={post.auther}
-                    key={post.id}
+                    
                     />
                </Link>
             )
