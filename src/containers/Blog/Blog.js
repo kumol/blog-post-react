@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import './Blog.css';
 import Posts from './Posts/Posts';
-import {Link, Route} from "react-router-dom";
+import {NavLink, Route} from "react-router-dom";
 import NewPost from './NewPost/NewPost';
+import FullPost from "./FullPost/FullPost"
 class Blog extends Component {
     
     render () {
@@ -12,13 +13,14 @@ class Blog extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><Link to="/">Home</Link></li>
-                            <li><Link to="/new-post">New post</Link></li>
+                            <li><NavLink to="/" exact>Home</NavLink></li>
+                            <li><NavLink to="/new-post">New post</NavLink></li>
                         </ul>
                     </nav>
                 </header>
                 <Route path="/" exact component={Posts}></Route>
                 <Route path="/new-post" exact component={NewPost}/>
+                <Route path="/:id" exact component={FullPost}/>
 {/*                 
                 <section>
                     <FullPost id={this.state.selectedPost}/>

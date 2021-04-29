@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import axios from "../../../axios";
 import Post from "../../../components/Post/Post";
 import "./Posts.css";
+import {Link} from 'react-router-dom';
 class Posts extends Component {
     state={
         posts:[],
@@ -25,12 +26,15 @@ class Posts extends Component {
 
     render(){
         const posts = this.state.posts.map(post=>{
-            return <Post
-                title={post.title}
-                auther={post.auther}
-                key={post.id}
-                clicked={()=>this.selectedPostHandler(post.id)}
-            />
+            return (
+               <Link to={"/"+post.id}>
+                    <Post
+                    title={post.title}
+                    auther={post.auther}
+                    key={post.id}
+                    />
+               </Link>
+            )
         });
         return(
             <section className="Posts">
